@@ -33,14 +33,14 @@ let rec check_a tokens =
   match tokens with
   | A :: tail -> check_a tail (* Continua a leggere gli A *)
   | X :: tail -> check_equals tail (* Trova il separatore "=" *)
+  | B :: tail -> check_b tail (* Trova il separatore "=" *)
   | [] -> true (* Parola valida se ci sono solo A *)
-  | _ -> false (* Token non valido *)
 
 and check_equals tokens =
   match tokens with
   | B :: tail -> check_b tail (* Trova la sequenza di B dopo "=" *)
   | X :: tail -> check_equals tail
-  | _ -> false (* Mancano i B dopo "=" *)
+  | _ -> true
 
 and check_b tokens =
   match tokens with
