@@ -1,0 +1,4 @@
+(executable
+ (public_name contexfree)
+ (name main)
+ (libraries contexfree))
